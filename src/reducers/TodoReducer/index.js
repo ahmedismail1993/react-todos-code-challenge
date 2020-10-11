@@ -3,7 +3,6 @@ const initial_state = {
   todoList: storage || [],
   todoItem: {},
 };
-
 const todoReducer = (state = initial_state, actions) => {
   switch (actions.type) {
     case "SET_TODO":
