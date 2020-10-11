@@ -12,7 +12,9 @@ function TodoForm({SET_TODO}) {
  const handleSubmit=(e)=>{
     e.preventDefault()
     const myTodo = {...todo,id:uuid()}
-    SET_TODO(myTodo)
+    if(todo.name!==''){
+      SET_TODO(myTodo)
+    }
     setValue(()=>{
       return{
         name:"",
