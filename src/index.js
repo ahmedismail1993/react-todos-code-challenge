@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import IndexPage from './pages/index';
+import React from "react";
+import ReactDOM from "react-dom";
+import IndexPage from "./pages/index";
+import ReduxProvider from "./redux/index";
 
 ReactDOM.render(
-    <React.StrictMode>
+  <React.StrictMode>
+    <ReduxProvider>
       <IndexPage />
-    </React.StrictMode>,
-    document.getElementById('root')
+    </ReduxProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
