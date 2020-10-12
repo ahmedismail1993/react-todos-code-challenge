@@ -10,14 +10,16 @@ const todoReducer = (state = initial_state, actions) => {
         ...state,
         todoList: [...state.todoList, actions.payload],
       };
+      break;
     case "DELETE_TODO":
+      const filterTodo = state.todoList.filter(
+        (todo) => todo.id !== actions.payload.id
+      );
+      localStorage.setItem("todos", JSON.stringify(filterTodo));
       return {
-        ...state,
-        todoList: state.todoList.filter(
-          (todo) => todo.id !== actions.payload.id
-        ),
+        todoList: filterTodo,
       };
-
+      break;
     case "UPDATE_TODO":
       const newTodos = state.todoList.map((todo) => {
         if (todo.id === actions.payload.id) {
@@ -38,6 +40,7 @@ const todoReducer = (state = initial_state, actions) => {
           };
         }),
       };
+      break;
     default:
       return state;
   }

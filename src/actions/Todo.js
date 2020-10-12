@@ -8,8 +8,6 @@ export const SET_TODO = (payload) => {
   };
 };
 export const DELETE_TODO = (payload) => {
-  const newStorage = storage.filter((st) => st.id !== payload.id);
-  localStorage.setItem("todos", JSON.stringify(newStorage));
   return {
     type: "DELETE_TODO",
     payload,
